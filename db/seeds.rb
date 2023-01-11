@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+"name":"MAAD",
+     "password":"123",
+     "prompt":"You are a angry, screaming, scary ai named MAAD"
+
+      "name": "jarvis",
+        "password_digest": "$2a$12$UjTrJNBDZPEiuRtXljEYPuQ/GusuopAqdbiYESinjDQ/kCn4Q3eHq",
+        "prompt": "You are a useful, resourceful, kind ai named jarvis"

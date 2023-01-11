@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect} from 'react';
 import * as THREE from "three";
-import Scene from "./components/scene";
-import Renderer from "./components/renderer";
-import Camera from "./components/camera";
-import Lights from "./components/lights";
-import Events from "./components/events";
-import Animator from "./components/animator";
-import Thing from "./elements/Thing.js";
-import Materials from "./elements/Materials.js";
-import Geometries from "./elements/Geometries.js";
+import Scene from "./scene";
+import Renderer from "./renderer";
+import Camera from "./camera";
+import Lights from "./lights";
+import Events from "./events";
+import Animator from "./animator";
+import Thing from "../elements/Thing.js";
+import Materials from "../elements/Materials.js";
+import Geometries from "../elements/Geometries";
 
-
-
-function App() {
-  const [searchTerm, setSearchTerm] = useState('')
-  console.log(searchTerm)
-
-class Sketch {
+class Shapes {
   constructor() {
     this.animator = new Animator(this);
     this.sizes = {
@@ -52,25 +43,8 @@ class Sketch {
     }
   }
 }
-window.sketch = new Sketch();
+window.sketch = new Shapes();
 window.sketch.init();
 
 
-
-  return (
-<div>
- <Thing/>
- <input
-      autoFocus
-      type='text'
-      autoComplete='off'
-      className='live-search-field'
-      placeholder='Search here...'
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-
-</div>
-  );
-}
-
-export default App;
+export default Shapes
