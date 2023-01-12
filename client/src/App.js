@@ -1,76 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
 import { useState, useEffect} from 'react';
+import './App.css';
+import HouseScene2 from './three.js/house-2'
+import Login from './Routes/Login';
+import Main from './Routes/Main';
 import * as THREE from "three";
-import Scene from "./components/scene";
-import Renderer from "./components/renderer";
-import Camera from "./components/camera";
-import Lights from "./components/lights";
-import Events from "./components/events";
-import Animator from "./components/animator";
-import Thing from "./elements/Thing.js";
-import Materials from "./elements/Materials.js";
-import Geometries from "./elements/Geometries.js";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
+import { Register } from './Routes/Register';
 
 
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('')
-  console.log(searchTerm)
+const [ai, setAi] = useState([])
 
-class Sketch {
-  constructor() {
-    this.animator = new Animator(this);
-    this.sizes = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-    this.scene = new Scene(this);
-    this.renderer = new Renderer(this);
-    this.camera = new Camera(this);
-    this.lights = new Lights(this);
-    this.events = new Events(this);
-  }
-  init() {
-    this.addObjects();
-    document.body.appendChild(this.renderer.domElement);
-    this.animator.animate();
-  }
-  addObjects() {
-    this.materials = new Materials(this);
-    this.geometries = new Geometries(this);
-
-    this.things = [];
-    this.num = 3;
-    this.width = 6;
-    for (let x = 0; x <= this.num; x++) {
-      for (let y = 0; y <= this.num; y++) {
-        const posX = (x / this.num) * this.width - this.width / 2;
-        const posY = (y / this.num) * this.width - this.width / 2;
-        this.things.push(new Thing(this, posX, posY));
-      }
-    }
-  }
-}
-window.sketch = new Sketch();
-window.sketch.init();
+useEffect(()=>{
+    fetch('/me')
+      .then(response => response.json())
+      .then(data => {
+        setAi(data)
+      })
+   },[])
 
 
 
-  return (
-<div>
- <Thing/>
- <input
-      autoFocus
-      type='text'
-      autoComplete='off'
-      className='live-search-field'
-      placeholder='Search here...'
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
 
-</div>
-  );
+const AppLayout = () => (<><Outlet/></>);
+ const router = createBrowserRouter(
+      createRoutesFromElements(
+        <Route path="/" element={<AppLayout/>}>
+          <Route index element={<Login setAi={setAi}/>}/>
+          <Route path="/main" element={<Main ai={ai} />}/>
+          <Route path="/create" element={<Register />}/>
+        </Route>
+      ))
+return (
+<div className='Apple'><RouterProvider router={router}/>
+{/* <HouseScene2/> */}
+</div>);
 }
 
 export default App;

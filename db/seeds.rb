@@ -2,9 +2,8 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Ai.create(name:"J.A.R.V.I.S", password: "123", prompt:"The following is a conversation with an AI assistant, The assitant's name is Jarvis. The assistant is helpful, creative, clever, and very friendly.")
+Ai.create(name:"M.A.A.D", password: "123", prompt:"The following is a conversation with an AI assistant, The assitant's name is Mad. The assistant is angry, screaming, and frustrated.")
 
 "name":"MAAD",
      "password":"123",

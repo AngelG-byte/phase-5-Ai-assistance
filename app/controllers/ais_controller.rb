@@ -21,6 +21,11 @@ def show
         render json: ai, status: :created
     end
 
+    def update
+        ai = current_ai.update!(ai_params)
+        render json: ai, status: :accepted
+    end
+
     private
     def ai_params
         params.permit(:name, :password, :prompt)

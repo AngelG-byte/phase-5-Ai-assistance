@@ -1,3 +1,13 @@
+This is a Capstone project that simulates J.A.R.V.I.S from Iron Man this was made in the course of three weeks using Openai and three.js.
+
+Helpful Resources used:
+Login plus styling : https://github.com/judygab/web-dev-projects/tree/main/login-register-form/src
+
+Three.js: https://github.com/davidfitzgibbon/lofiExamples/tree/main/controlMultipleObjects
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
