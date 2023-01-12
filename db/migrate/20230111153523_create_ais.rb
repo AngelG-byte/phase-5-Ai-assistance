@@ -4,6 +4,7 @@ class CreateAis < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :password_digest
       t.string :prompt
+      
 
       t.timestamps
     end

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
         ai = Ai.find_by(name: params[:name])
         if ai && ai.authenticate(params[:password])
             session[:ai_id] = ai.id
-            render json: user
+            render json: ai
         else
             render json: { errors: "name or password invalid" }, status: 403
         end
