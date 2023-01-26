@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2023_01_11_153523) do
     t.string "name"
     t.string "password_digest"
     t.string "prompt"
+    t.string "personality"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

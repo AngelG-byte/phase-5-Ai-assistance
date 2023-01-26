@@ -1,7 +1,7 @@
 import { Form, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export default function Login({setAi}){
+export default function Login({setAi, setPromptly}){
     //States and Nav
     const navigate = useNavigate()
     const [name, setName] = useState([])
@@ -25,7 +25,7 @@ export default function Login({setAi}){
         .then( data => {
             if (data.id) {
                 setAi(data)
-               navigate('/main')
+               navigate('/home')
             } else if (data.errors) {
                 setError(data.errors)
             }

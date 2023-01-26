@@ -7,6 +7,7 @@ export const Register = () => {
     const [prompt, setPrompt] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const [personality, setPersonality] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,8 +36,10 @@ export const Register = () => {
         <form className="register-form" onSubmit={handleSubmit}>
             <label htmlFor="name"> Name</label>
             <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="Name" />
-            <label htmlFor="prompt">Prompt</label>
-            <input value={prompt} onChange={(e) => setPrompt(e.target.value)}type="prompt" placeholder="Description of personality" id="prompt"  />
+            <label htmlFor="personality">Personality</label>
+            <input value={personality} name="personality" onChange={(e) => setPersonality(e.target.value)} id="personality" placeholder="Description of personality" />
+            {/* <label htmlFor="prompt">Prompt</label>
+            <input value={prompt} onChange={(e) => setPrompt(e.target.value)}type="prompt" placeholder="Description of personality" id="prompt"  /> */}
             <label htmlFor="password">Password</label>
             <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password" />
             <button type="submit">Deploy</button>

@@ -6,7 +6,7 @@ class Scene {
     this.settings = { ...settings };
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x003049);
+    this.scene.background = new THREE.Color(0x48cae4);
 
     return this.scene;
   }

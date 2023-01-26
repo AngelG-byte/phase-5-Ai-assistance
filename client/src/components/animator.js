@@ -11,6 +11,7 @@ class Animator {
     this.tasks.push(fn);
   }
   animate() {
+    // this is the spinning animation
     requestAnimationFrame(this.animate.bind(this));
 
     this.tasks.forEach((task) => task());
