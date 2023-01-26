@@ -12,7 +12,7 @@ export default function Ai({ai, setResult, handlePatch, setInput, input, speech,
 
     const handleComms = (e) => {
     talk()
-    speech()
+    
 
 }
 // speech recognition stuff

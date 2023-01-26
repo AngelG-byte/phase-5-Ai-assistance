@@ -10,7 +10,7 @@ export default function Home({ai, setAi}){
 const [result, setResult] = useState('')
 const [input, setInput] = useState('')
 const [luminence, setLight] = useState(false)
-const [color, setColor] = useState('0xff0000')
+const [color, setColor] = useState('red')
 const speechRef = useRef(null)
 const handlePatch = () =>{
         fetch("/prompt",{
@@ -31,8 +31,7 @@ const handlePatch = () =>{
         if(result){
             speechRef.current.play()
         }
-
-     },[result])
+        },[result])
 
 
 

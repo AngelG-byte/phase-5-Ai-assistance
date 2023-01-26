@@ -4,12 +4,14 @@ import { PointLight } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 function HouseScene({luminence , hue}) {
-  const containerRef = useRef();
+  // const containerRef = useRef();
+  
   const canvas = document.querySelector('#c');
   const renderer = new THREE.WebGLRenderer({canvas});
-
+  console.log(hue)
   // Create a scene
   const scene = new THREE.Scene();
+  // scene.background = new THREE.Color(0x48cae4);
 
   // Create a camera
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -22,7 +24,8 @@ function HouseScene({luminence , hue}) {
 
   // Create a house geometry
   const houseGeometry = new THREE.BoxGeometry(2, 2, 2);
-  const houseMaterial = new THREE.MeshLambertMaterial({color:0xff0000});
+  const houseMaterial = new THREE.MeshLambertMaterial();
+  houseMaterial.color = new THREE.Color( hue )
   const house = new THREE.Mesh(houseGeometry, houseMaterial);
   scene.add(house);
 
@@ -32,9 +35,9 @@ function HouseScene({luminence , hue}) {
     light.position.set(0, 10, 0);
     scene.add(light);
 
-    // useEffect(()=>{
-    //   toggleLight()
-    // },[luminence])
+    useEffect(()=>{
+      toggleLight()
+    },[luminence])
 
     // Add orbit controls
     const orbitControls = new OrbitControls(camera, renderer.domElement);
@@ -63,7 +66,7 @@ function HouseScene({luminence , hue}) {
     render();
 return(
   <>
-  {toggleLight()}
+  {/* {toggleLight()} */}
   </>
 )
     // Clean up on unmount

@@ -3,7 +3,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 const Dictaphone = ({setInput, handleComms, input, setLight, setColor }) => {
 const [content, setContent] = useState('');
-const [isMatch, setIsMatch] = useState(false);
+
 
 const commands = [
     {
@@ -37,13 +37,29 @@ const commands = [
       }
     },
       {
-      command: 'make the colour red',
+      command: 'make the color red',
       callback: () => {
-        setColor('0xff0000')
+        setColor('red')
         console.log("color changed");
 
       }
-    }
+    },
+      {
+      command: 'make the color blue',
+      callback: () => {
+        setColor('blue')
+        console.log("color changed");
+
+      }
+    },
+      {
+      command: 'make the color green',
+      callback: () => {
+        setColor('green')
+        console.log("color changed");
+
+      }
+    },
   ]
 
     const {
@@ -74,14 +90,12 @@ const commands = [
     if (input){
       handleComms()
     }
-    else if (input === "remind"){
-      return null
-    }
+
   }
 
 
   return (
-    <div onKeyDown={SpeechRecognition.startListening} onKeyUp={doVoice} >
+    <div >
       <p>Microphone: {listening ? 'on' : 'off'}</p>
       <button onKeyDown={SpeechRecognition.startListening} onKeyUp={doVoice}></button>
       {/* <button onClick={sendEmail}></button> */}
