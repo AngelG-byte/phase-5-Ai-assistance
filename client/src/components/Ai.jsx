@@ -1,62 +1,55 @@
 import { Configuration, OpenAIApi } from 'openai'
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import {aiKey} from "../config.js"
+import Dictaphone from "../components/Dictaphone.jsx";
 
 
-export default function Ai({ai, setResult}){
-    const [input, setInput] = useState('')
 
-    const handlePatch = () =>{
-fetch("/prompt",{
-    method: "PATCH",
-    headers:{
-        "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-            prompt: ai.ai.prompt +`\nHuman: ${input}`
-        })
-}).then(r => r.json())
-.then(data=>{
-    console.log(data);
-})
+
+export default function Ai({ai, setResult, handlePatch, setInput, input, speech, setLight, setColor}){
+
+
+    const handleComms = (e) => {
+    talk()
+    speech()
+
 }
+// speech recognition stuff
+
+
 
  // sets the API_KEY
     const configuration = new Configuration({
   apiKey: aiKey,
 });
-console.log(input);
+
 //allows API talk
 const openai = new OpenAIApi(configuration);
+
 // response from Ai
 const talk = async ()  =>{
 const response = await openai.createCompletion({
   model: "text-davinci-003",
-  prompt: input,
+  prompt: ai.personality + input,
   temperature: 0.9,
-  max_tokens: 150,
+  max_tokens: 300,
   top_p: 1,
   frequency_penalty: 0.0,
   presence_penalty: 0.6,
   stop: [" Human:", " AI:"],
-});
-//this sends the responce text to main
+})
 setResult(response.data.choices[0].text)
 }
-
-function masterButton(){
-    handlePatch()
-    talk()
-}
-
-
 
 return(
         <div>
             <form onSubmit={handlePatch}>
-                <input onChange={(e)=>setInput(e.target.value)}></input>
+               <span> <input className='jarvis' value={input} onChange={(e)=> setInput(e.target.value)}></input></span>
+
             </form>
-            <button onClick={masterButton}> hello </button>
+            {/* <button onClick={handleComms}> Do Stuff </button> */}
+             <Dictaphone  setColor={setColor} setLight={setLight} setResult={setResult} handleComms={handleComms} input={input} setInput={setInput}/>
 
 
         </div>

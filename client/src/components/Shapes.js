@@ -32,8 +32,10 @@ class Shapes {
     this.geometries = new Geometries(this);
 
     this.things = [];
-    this.num = 3;
-    this.width = 6;
+    //this is the amount of objects to create
+    this.num = 2;
+    this.width = 4;
+    // ends here
     for (let x = 0; x <= this.num; x++) {
       for (let y = 0; y <= this.num; y++) {
         const posX = (x / this.num) * this.width - this.width / 2;

@@ -10,12 +10,16 @@
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "google-tts-api": "^2.0.2",
     "openai": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
+    "react-speech": "^1.0.2",
+    "react-speech-recognition": "^3.10.0",
     "three": "^0.148.0",
+    "ttsreader": "^1.0.25",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

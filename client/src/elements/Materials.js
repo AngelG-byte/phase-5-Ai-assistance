@@ -2,8 +2,9 @@ import * as THREE from "three";
 
 export default class Materials {
   constructor() {
+     this.state = { animationOn: true };
     this.materials = [];
-    this.colors = [0x003049, 0xd62828, 0xf77f00];
+    this.colors = [0xf9f4e6, 0xe7c956, 0xae83d7, 0xa0e600];
     this.colors.forEach((color) => {
       this.createMaterial(color);
     });

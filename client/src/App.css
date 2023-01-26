@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   color: rgb(255, 255, 255);
-  background-image: linear-gradient(79deg, #b797f0, #8d1f80 48%, #ffffff);
+  /* background-image: linear-gradient(79deg,#826aed , #c879ff , #ffb7ff 20%, #3bf4fb, #caff8a ); */
+  background-color: black;
 }
 .auth-form-container,
 .login-form,
@@ -41,7 +42,7 @@ button {
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
-  color: #7439db;
+  color: #000000;
 }
 
 .link-btn {
@@ -53,4 +54,77 @@ button {
 .main-style {
   display: flex;
   flex-direction: column;
+  padding: 5rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.rs-container {
+  display: none;
+}
+.p-tag {
+  width: 100vh;
+}
+.jarvis{
+
+ width: fit-content;
+
+}
+
+/* logout css hopefully */
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+
+}
+
+.button {
+  text-decoration: none;
+  float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout {
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
 }

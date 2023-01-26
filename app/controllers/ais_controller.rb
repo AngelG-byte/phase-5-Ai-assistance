@@ -22,12 +22,18 @@ def show
     end
 
     def update
-        ai = current_ai.update!(ai_params)
-        render json: ai, status: :accepted
+        ai = current_ai
+
+        if ai.update!(ai_params)
+            render json: current_ai, status: :accepted
+        else
+            render json: false
+        end
+
     end
 
     private
     def ai_params
-        params.permit(:name, :password, :prompt)
+        params.permit(:name, :password, :prompt,:personality)
     end
 end
