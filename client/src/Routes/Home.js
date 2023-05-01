@@ -2,7 +2,7 @@ import React,{useEffect, useState, useRef} from "react"
 import {aiKey} from "../config.js"
 import Ai from "../components/Ai";
 import Logout from "../components/Logout.jsx";
-// import Shapes from "../components/Shapes.js";
+import Shapes from "../components/Shapes.js";
 import Speech from 'react-speech';
 import HouseScene from "../three.js/house-scene";
 

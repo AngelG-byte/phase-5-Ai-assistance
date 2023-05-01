@@ -14,7 +14,7 @@ const commands = [
       }
     },
     {
-      command: 'i want to order * (please)',
+      command: 'i want to order * ',
       callback: (food) => {
         setContent(`I ordered ${food} just letting you know`)
         emailHandler()
@@ -37,29 +37,29 @@ const commands = [
       }
     },
       {
-      command: 'make the color red',
-      callback: () => {
-        setColor('red')
+      command: 'set the color to *',
+      callback: (color) => {
+        setColor(color)
         console.log("color changed");
 
       }
-    },
-      {
-      command: 'make the color blue',
-      callback: () => {
-        setColor('blue')
-        console.log("color changed");
+    }
+    //   {
+    //   command: 'change the color to Blue',
+    //   callback: () => {
+    //     setColor('blue')
+    //     console.log("color changed");
 
-      }
-    },
-      {
-      command: 'make the color green',
-      callback: () => {
-        setColor('green')
-        console.log("color changed");
+    //   }
+    // },
+    //   {
+    //   command: 'change the color to Green',
+    //   callback: () => {
+    //     setColor('green')
+    //     console.log("color changed");
 
-      }
-    },
+    //   }
+    // },
   ]
 
     const {
@@ -100,7 +100,7 @@ const commands = [
       <button onKeyDown={SpeechRecognition.startListening} onKeyUp={doVoice}></button>
       {/* <button onClick={sendEmail}></button> */}
 
-      {/* <button onClick={resetTranscript}>Reset</button> */}
+      <button onClick={resetTranscript}></button>
 
     </div>
   );

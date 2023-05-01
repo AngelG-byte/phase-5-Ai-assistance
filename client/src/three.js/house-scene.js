@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 function HouseScene({luminence , hue}) {
   // const containerRef = useRef();
-  
+
   const canvas = document.querySelector('#c');
   const renderer = new THREE.WebGLRenderer({canvas});
   console.log(hue)
@@ -35,9 +35,9 @@ function HouseScene({luminence , hue}) {
     light.position.set(0, 10, 0);
     scene.add(light);
 
-    useEffect(()=>{
-      toggleLight()
-    },[luminence])
+    // useEffect(()=>{
+    //   toggleLight()
+    // },[luminence])
 
     // Add orbit controls
     const orbitControls = new OrbitControls(camera, renderer.domElement);
@@ -66,7 +66,7 @@ function HouseScene({luminence , hue}) {
     render();
 return(
   <>
-  {/* {toggleLight()} */}
+  {toggleLight()}
   </>
 )
     // Clean up on unmount
